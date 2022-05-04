@@ -1,0 +1,40 @@
+.review_header {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.review_form_container {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+}
+
+.review_field {
+    height: 100%;
+    width: 400px;
+}
+
+.review_form {
+    height: 100%;
+}
+
+.review_control {
+    height: 80%;
+    width: 100%
+}
+
+.review_input {
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    padding: .25rem;
+}
+
+.review_button_container {
+    text-align: center;
+}
+
+.review_button {
+    font-size: 20px;
+    padding: .25rem;
+}

@@ -16,13 +16,22 @@ export const getCurrentGame = (gameId) => {
         .then(response => response.json())
 }
 
-export const getGameTypes = () => {
-    return fetch("http://localhost:8000/gametypes", {
+export const getReviews = () => {
+    return fetch("http://localhost:8000/reviews", {
         headers: {
             "Authorization": `Token ${localStorage.getItem("tu_token")}`
         }
     })
-        .then(res => res.json())
+        .then(response => response.json())
+}
+
+export const getReviewsByGame = (gameId) => {
+    return fetch(`http://localhost:8000/reviews?game=${gameId}`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("tu_token")}`
+        }
+    })
+        .then(response => response.json())
 }
 
 export const createGame = (game) => {
@@ -35,6 +44,18 @@ export const createGame = (game) => {
         body: JSON.stringify(game)
     })
         .then(getGames)
+}
+
+export const createReview = (review) => {
+    return fetch("http://localhost:8000/reviews", {
+        method: "POST",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("tu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(review)
+    })
+        .then(getReviews)
 }
 
 export const putGame = (game) => {
