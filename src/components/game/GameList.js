@@ -11,11 +11,6 @@ export const GameList = (props) => {
         getGames().then(data => setGames(data))
     }, [])
 
-    // const handleDelete = (gameId) => {
-    //     const filteredEvent = games.filter(game => game.id != gameId)
-    //     setGames(filteredEvent)
-    //     deleteGame(gameId)
-    // }
 
     return (
         <article className="games">
@@ -34,6 +29,9 @@ export const GameList = (props) => {
                         <div className="game__players">{game.number_of_players} players needed</div>
                         <div className="game__time_estimate">Takes roughly {game.estimated_time_to_play} minutes on average to play</div>
                         <div className="game__age">Meant for ages {game.age_recommendation} and up</div>
+                        {/* {
+                            game.gamer_id ==
+                        } */}
                     </section>
                 })
             }

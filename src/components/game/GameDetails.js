@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import React, { useState, useEffect } from "react"
 import { getCurrentGame, getReviewsByGame } from "./GamerManager"
 import { useHistory } from "react-router-dom"
+import { StarRating } from "./StarRating"
 
 
 export const GameDetails = () => {
@@ -34,6 +35,12 @@ export const GameDetails = () => {
                     <div className="game__players">{currentGame.number_of_players} players needed</div>
                     <div className="game__time_estimate">Takes roughly {currentGame.estimated_time_to_play} minutes on average to play</div>
                     <div className="game__age">Meant for ages {currentGame.age_recommendation} and up</div>
+                    <div className="average_rating">The average rating for this game is {currentGame.average_rating}</div>
+                    <div className="rating_title">
+                        <h2>Rate Game</h2>
+                        <StarRating gameId={gameId}/>
+                    </div>
+
                     <button
                         className="create_review_button"
                         onClick={() => history.push(`/game/${gameId}/review`)}

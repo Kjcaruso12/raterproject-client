@@ -7,10 +7,10 @@ import { Register } from "./auth/Register";
 
 
 export const GamerRater = () => {
-    const [token, setTokenState] = useState(localStorage.getItem("token"));
+    const [token, setTokenState] = useState(localStorage.getItem("tu_token"));
 
     const setToken = (newToken) => {
-      localStorage.setItem("token", newToken);
+      localStorage.setItem("tu_token", newToken);
       setTokenState(newToken);
     };
     return (
@@ -25,12 +25,12 @@ export const GamerRater = () => {
         )}
 
         <Route exact path="/login">
-          <NavBar token={token} setToken={setToken} />
+          {/* <NavBar token={token} setToken={setToken} /> */}
           <Login token={token} setToken={setToken} />
         </Route>
 
         <Route path="/register" exact>
-          <NavBar token={token} setToken={setToken} />
+          {/* <NavBar token={token} setToken={setToken} /> */}
           <Register token={token} setToken={setToken} />
         </Route>
       </>

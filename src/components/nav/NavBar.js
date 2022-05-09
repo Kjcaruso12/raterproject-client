@@ -33,6 +33,7 @@ export const NavBar = () => {
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>
                     </>
-            }        </ul>
+            }
+        </ul>
     )
 }

@@ -7,6 +7,15 @@ export const getGames = () => {
         .then(response => response.json())
 }
 
+export const getCurrentUser = (token) => {
+    return fetch(`http://localhost:8000/users/${token}`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("tu_token")}`
+        }
+    })
+        .then(response => response.json())
+}
+
 export const getCurrentGame = (gameId) => {
     return fetch(`http://localhost:8000/games/${gameId}`, {
         headers: {
@@ -18,6 +27,15 @@ export const getCurrentGame = (gameId) => {
 
 export const getReviews = () => {
     return fetch("http://localhost:8000/reviews", {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("tu_token")}`
+        }
+    })
+        .then(response => response.json())
+}
+
+export const getRatingsByGame = (gameId) => {
+    return fetch(`http://localhost:8000/ratings?game=${gameId}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("tu_token")}`
         }
@@ -44,6 +62,18 @@ export const createGame = (game) => {
         body: JSON.stringify(game)
     })
         .then(getGames)
+}
+
+export const createRating = (rating, setRating) => {
+    return fetch("http://localhost:8000/ratings", {
+        method: "POST",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("tu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(rating)
+    })
+        .then(setRating)
 }
 
 export const createReview = (review) => {
